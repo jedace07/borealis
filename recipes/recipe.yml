@@ -19,12 +19,23 @@ modules:
 
   - type: dnf
     repos:
+      files:
+        - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo 
       copr:
         - atim/starship
+      keys:
+        - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     install:
       packages:
+        - repo: brave-browser
+          packages:
+            - brave-origin
         - micro
         - starship
+    group-install:
+      with-optional: true # install optional packages from group
+      packages:
+        - cosmic-desktop 
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
@@ -38,8 +49,7 @@ modules:
         scope: system
         # If no repo information is specified, Flathub will be used by default
         install: # system flatpaks we want all users to have and not remove
-          - org.mozilla.firefox
-          - org.gnome.Loupe
+          - org.nomacs.ImageLounge 
           - io.github.mpc_qt.mpc-qt
       - scope: user # Also add Flathub user repo, but no user packages
 
