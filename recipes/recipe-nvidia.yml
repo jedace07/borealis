@@ -47,3 +47,5 @@ modules:
 
   - type: akmods
     nvidia-driver: nvidia-open
+    install:
+      - nvidia-open
