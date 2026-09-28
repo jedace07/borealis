@@ -32,6 +32,7 @@ modules:
             - brave-origin
         - micro
         - starship
+        - liberation-fonts
     group-install:
       with-optional: true # install optional packages from group
       packages:
