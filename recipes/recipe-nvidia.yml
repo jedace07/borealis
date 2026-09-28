@@ -46,7 +46,5 @@ modules:
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
   - type: akmods
-    base: main
-    nvidia-driver: nvidia-open
     install:
-      - nvidia-open
+      - v4l2loopback
