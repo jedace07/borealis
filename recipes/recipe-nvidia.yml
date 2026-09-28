@@ -6,54 +6,12 @@ name: borealis-nvidia
 description: This is my personal OS image, for Nvidia.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/base-main
+base-image: ghcr.io/jedace07/borealis 
 image-version: latest # You can pin to a specific version of Fedora as well
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-  - type: files
-    files:
-      - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
-
-  - type: dnf
-    repos:
-      files:
-        - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-      copr:
-        - atim/starship
-      keys:
-        - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-    install:
-      packages:
-        - repo: brave-browser
-          packages:
-            - brave-origin
-        - micro
-        - starship
-        - liberation-fonts
-    group-install:
-      with-optional: true # install optional packages from group
-      packages:
-        - cosmic-desktop 
-    remove:
-      packages:
-        # example: removing firefox (in favor of the flatpak)
-        # "firefox" is the main package, "firefox-langpacks" is a dependency
-        - firefox
-        - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
-
-  - type: default-flatpaks
-    configurations:
-      - notify: true # Send notification after install/uninstall is finished (true/false)
-        scope: system
-        # If no repo information is specified, Flathub will be used by default
-        install: # system flatpaks we want all users to have and not remove
-          - org.nomacs.ImageLounge 
-          - io.github.mpc_qt.mpc-qt
-      - scope: user # Also add Flathub user repo, but no user packages
-
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
   - type: akmods
