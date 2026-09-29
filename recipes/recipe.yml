@@ -38,6 +38,7 @@ modules:
         - clinfo
         - pocl
         - mesa-libOpenCL
+        - intel-compute-runtime
         - topgrade
     group-install:
       with-optional: true # install optional packages from group
@@ -67,6 +68,8 @@ modules:
           - io.github.kolunmi.Bazaar
           - io.github.flattool.Warehouse
           - com.github.tchx84.Flatseal
+          - app.devsuite.Ptyxis
+          - com.ranfdev.DistroShelf
     
   - type: brew
     auto-update: true
