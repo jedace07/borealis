@@ -39,6 +39,12 @@ modules:
         - pocl
         - mesa-libOpenCL
         - intel-compute-runtime
+        - fuse
+        - fuse-libs
+        - gvfs-mtp
+        - glycin-thumgnailer
+        - ffmpegthumbnailer
+        - cosmic-initial-setup
     #    - topgrade
     group-install:
       with-optional: true # install optional packages from group
