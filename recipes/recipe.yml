@@ -34,6 +34,9 @@ modules:
         - starship
         - liberation-fonts
         - kde-connect
+        - clinfo
+        - pocl
+        - mesa-libOpenCL
     group-install:
       with-optional: true # install optional packages from group
       packages:
@@ -44,6 +47,9 @@ modules:
         # "firefox" is the main package, "firefox-langpacks" is a dependency
         - firefox
         - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+        - cosmic-store
+        - cosmic-player
+        - fedora-flathub-remote
 
   - type: default-flatpaks
     configurations:
@@ -57,5 +63,10 @@ modules:
           - org.gnome.TextEditor
           - io.github.kolunmi.Bazaar
           - io.github.flattool.Warehouse
+    
+  - type: brew
+    auto-update: true
+    auto-upgrade: true
+    brew-analytics: true
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
