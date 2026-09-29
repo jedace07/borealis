@@ -21,10 +21,11 @@ modules:
     repos:
       files:
         - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo 
-      copr:
-        - atim/starship
       keys:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+      copr:
+        - atim/starship
+        - ublue-os/packages
     install:
       packages:
         - repo: brave-browser
