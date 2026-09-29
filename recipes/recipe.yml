@@ -37,10 +37,12 @@ modules:
         - clinfo
         - pocl
         - mesa-libOpenCL
+        - topgrade
     group-install:
       with-optional: true # install optional packages from group
       packages:
         - cosmic-desktop 
+        - development-tools
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
@@ -63,6 +65,7 @@ modules:
           - org.gnome.TextEditor
           - io.github.kolunmi.Bazaar
           - io.github.flattool.Warehouse
+          - com.github.tchx84.Flatseal
     
   - type: brew
     auto-update: true
