@@ -23,6 +23,7 @@ modules:
         - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo 
       copr:
         - atim/starship
+        - lilay/topgrade
       keys:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     install:
