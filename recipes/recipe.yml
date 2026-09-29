@@ -70,7 +70,6 @@ modules:
         - tortoisehg
         - qt5ct
         - qt6ct
-        - system-config-printer
         - gtranslator
 
   - type: default-flatpaks
@@ -93,5 +92,24 @@ modules:
     auto-update: true
     auto-upgrade: true
     brew-analytics: true
+
+  - type: fonts
+    fonts:
+      google-fonts:
+        # Metric-compatible MS replacements
+        - Carlito      # Drop-in replacement for Calibri (MS Word default)
+        - Caladea      # Drop-in replacement for Cambria
+        - Arimo        # Drop-in replacement for Arial
+        - Tinos        # Drop-in replacement for Times New Roman
+        - Cousine      # Drop-in replacement for Courier New
+        - Selawik      # Metric-compatible replacement for Segoe UI
+
+        # Modern UI & Web Essentials
+        - Inter        # Clean modern UI sans-serif
+        - Roboto       # Default Android sans-serif
+        - Open Sans    # Web & interface standard
+        - Lato         # Popular sans-serif alternative
+        - Montserrat   # Geometric sans for headings
+        - Nunito       # Rounded display sans
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
