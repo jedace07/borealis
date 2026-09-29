@@ -23,7 +23,7 @@ modules:
         - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo 
       copr:
         - atim/starship
-        - lilay/topgrade
+     #   - lilay/topgrade
       keys:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     install:
@@ -39,7 +39,7 @@ modules:
         - pocl
         - mesa-libOpenCL
         - intel-compute-runtime
-        - topgrade
+    #    - topgrade
     group-install:
       with-optional: true # install optional packages from group
       packages:
