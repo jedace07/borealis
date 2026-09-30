@@ -6,14 +6,114 @@ name: borealis-nvidia
 description: This is my personal OS image, for Nvidia.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/jedace07/borealis 
+base-image: ghcr.io/ublue-os/base-main
 image-version: latest # You can pin to a specific version of Fedora as well
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+  - type: files
+    files:
+      - source: system
+        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+
+  - type: dnf
+    repos:
+      files:
+        - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+      keys:
+        - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+      copr:
+        - atim/starship
+        - ublue-os/packages
+    install:
+      packages:
+        - repo: brave-browser
+          packages:
+            - brave-origin
+        - micro
+        - starship
+        - liberation-fonts
+        - kde-connect
+        - clinfo
+        - pocl
+        - mesa-libOpenCL
+        - intel-compute-runtime
+        - gvfs-mtp
+        - glycin-thumbnailer
+        - vulkan-tools
+        - uupd
+    group-install:
+      with-optional: true # install optional packages from group
+      packages:
+        - cosmic-desktop
+        - development-tools
+    remove:
+      packages:
+        # example: removing firefox (in favor of the flatpak)
+        # "firefox" is the main package, "firefox-langpacks" is a dependency
+        - firefox
+        - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+        - cosmic-store
+        - cosmic-player
+        - cosmic-edit
+        - fedora-flathub-remote
+        - gambas3-ide
+        - gambas3-runtime
+        - git-cola
+        - gitg
+        - qgit
+        - meld
+        - nemiver
+        - manedit
+        - rapidsvn
+        - tortoisehg
+        - qt5ct
+        - qt6ct
+        - gtranslator
+
+  - type: default-flatpaks
+    configurations:
+      - notify: true # Send notification after install/uninstall is finished (true/false)
+        scope: system
+        # If no repo information is specified, Flathub will be used by default
+        install: # system flatpaks we want all users to have and not remove
+          - org.gnome.Loupe
+          - io.github.diegopvlk.Cine
+          - eu.betterbird.Betterbird
+          - org.gnome.TextEditor
+          - io.github.kolunmi.Bazaar
+          - io.github.flattool.Warehouse
+          - com.github.tchx84.Flatseal
+          - app.devsuite.Ptyxis
+          - com.ranfdev.DistroShelf
+
+  - type: brew
+    auto-update: true
+    auto-upgrade: true
+    brew-analytics: true
+
+  - type: fonts
+    fonts:
+      google-fonts:
+        # Metric-compatible MS replacements
+        - Carlito      # Drop-in replacement for Calibri (MS Word default)
+        - Caladea      # Drop-in replacement for Cambria
+        - Arimo        # Drop-in replacement for Arial
+        - Tinos        # Drop-in replacement for Times New Roman
+        - Cousine      # Drop-in replacement for Courier New
+        - Selawik      # Metric-compatible replacement for Segoe UI
+
+        # Modern UI & Web Essentials
+        - Inter        # Clean modern UI sans-serif
+        - Roboto       # Default Android sans-serif
+        - Open Sans    # Web & interface standard
+        - Lato         # Popular sans-serif alternative
+        - Montserrat   # Geometric sans for headings
+        - Nunito       # Rounded display sans
 
   - type: akmods
     nvidia-driver: nvidia-open
     install: []
+
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully
