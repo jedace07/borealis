@@ -4,12 +4,12 @@ modules:
   - type: script
     env:
       PUBLIC_KEY_DER_PATH: /etc/pki/akmods/certs/akmods-blue-build.der
-    secrets:
-      - type: file
-        source: ./MOK.priv
-        mount: 
-          type: file
-          destination: /tmp/certs/private_key.priv
+    # secrets:
+    #  - type: file
+    #    source: ./MOK.priv
+    #    mount: 
+    #      type: file
+    #      destination: /tmp/certs/private_key.priv
     scripts:
       - signkernel.sh
   - type: initramfs
