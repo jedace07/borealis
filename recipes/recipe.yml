@@ -6,7 +6,7 @@ name: borealis
 description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/base-main
+base-image: ghcr.io/blue-build/base-images/fedora-cosmic
 image-version: latest # You can pin to a specific version of Fedora as well
 
 # module configuration, executed in order
@@ -42,12 +42,6 @@ modules:
         - gvfs-mtp
         - glycin-thumbnailer
         - vulkan-tools
-        - uupd
-    group-install:
-      with-optional: true # install optional packages from group
-      packages:
-        - cosmic-desktop 
-        - development-tools
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
