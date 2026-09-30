@@ -40,6 +40,7 @@ modules:
         - intel-compute-runtime
         - glycin-thumbnailer
         - vulkan-tools
+        - OpenCL-ICD-Loader
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
@@ -51,6 +52,7 @@ modules:
         - cosmic-edit
         - qt6ct
         - ark
+        - ocl-icd
 
   - type: default-flatpaks
     configurations:
