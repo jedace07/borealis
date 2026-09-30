@@ -25,7 +25,6 @@ modules:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
       copr:
         - atim/starship
-        - ublue-os/packages
     install:
       packages:
         - repo: brave-browser
@@ -39,7 +38,6 @@ modules:
         - pocl
         - mesa-libOpenCL
         - intel-compute-runtime
-        - gvfs-mtp
         - glycin-thumbnailer
         - vulkan-tools
     remove:
@@ -51,20 +49,7 @@ modules:
         - cosmic-store
         - cosmic-player
         - cosmic-edit
-        - fedora-flathub-remote
-        - gambas3-ide
-        - gambas3-runtime
-        - git-cola
-        - gitg
-        - qgit
-        - meld
-        - nemiver
-        - manedit
-        - rapidsvn
-        - tortoisehg
-        - qt5ct
         - qt6ct
-        - gtranslator
 
   - type: default-flatpaks
     configurations:
