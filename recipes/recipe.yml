@@ -50,6 +50,7 @@ modules:
         - cosmic-player
         - cosmic-edit
         - qt6ct
+        - ark
 
   - type: default-flatpaks
     configurations:
