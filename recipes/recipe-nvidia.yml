@@ -53,6 +53,7 @@ modules:
         - qt6ct
         - ark
         - ocl-icd
+        - cosmic-monitor
 
   - type: default-flatpaks
     configurations:
@@ -69,6 +70,7 @@ modules:
           - com.github.tchx84.Flatseal
           - app.devsuite.Ptyxis
           - com.ranfdev.DistroShelf
+          - io.missioncenter.MissionCenter
 
   - type: brew
     auto-update: true
