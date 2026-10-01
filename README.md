@@ -32,7 +32,29 @@ The `latest` tag will automatically point to the latest build. That build will s
 
 ## ISO
 
-If build on Fedora Atomic, you can generate an offline ISO with the instructions available [here](https://blue-build.org/how-to/generate-iso/#_top). These ISOs cannot unfortunately be distributed on GitHub for free due to large sizes, so for public projects something else has to be used for hosting.
+Build the ISO with the `Server` installer variant, which asks for a user account during installation. The ISO builder also bundles the default Flathub apps from `flatpak_refs/`, so they are installed as part of the OS deployment instead of being downloaded on first boot. Set `IMAGE_NAME=borealis-nvidia` to build the NVIDIA image instead.
+
+```bash
+IMAGE_NAME=${IMAGE_NAME:-borealis}
+IMAGE=ghcr.io/jedace07/$IMAGE_NAME:latest
+VERSION=$(podman run --rm --entrypoint sh "$IMAGE" -c '. /etc/os-release; printf "%s" "$VERSION_ID"')
+mkdir -p build
+
+podman run --rm --privileged \
+  --volume "$PWD:/github/workspace" \
+  --volume "$PWD/build:/build-container-installer/build" \
+  -e VERSION="$VERSION" \
+  -e IMAGE_REPO=ghcr.io/jedace07 \
+  -e IMAGE_NAME="$IMAGE_NAME" \
+  -e IMAGE_TAG=latest \
+  -e VARIANT=Server \
+  -e FLATPAK_REMOTE_NAME=flathub \
+  -e FLATPAK_REMOTE_URL=https://flathub.org/repo/flathub.flatpakrepo \
+  -e FLATPAK_REMOTE_REFS_DIR=/github/workspace/flatpak_refs \
+  ghcr.io/jasonn3/build-container-installer:latest
+```
+
+The resulting ISO is written to `build/deploy.iso`. Generate it from a Fedora Atomic host with Podman and network access. These ISOs are too large to distribute through GitHub's free artifact storage, so public projects need another hosting option.
 
 ## Verification
 
