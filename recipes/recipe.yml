@@ -55,23 +55,6 @@ modules:
         - ocl-icd
         - cosmic-monitor
 
-  - type: default-flatpaks
-    configurations:
-      - notify: false
-        scope: system
-        # If no repo information is specified, Flathub will be used by default
-        install: # system flatpaks we want all users to have and not remove
-          - org.gnome.Loupe  
-          - io.github.diegopvlk.Cine
-          - eu.betterbird.Betterbird
-          - org.gnome.TextEditor
-          - io.github.kolunmi.Bazaar
-          - io.github.flattool.Warehouse
-          - com.github.tchx84.Flatseal
-          - app.devsuite.Ptyxis
-          - com.ranfdev.DistroShelf
-          - io.missioncenter.MissionCenter
-    
   - type: brew
     auto-update: true
     auto-upgrade: true
