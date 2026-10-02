@@ -1,13 +1,12 @@
 # borealis &nbsp; [![bluebuild build badge](https://github.com/jedace07/borealis/actions/workflows/build.yml/badge.svg)](https://github.com/jedace07/borealis/actions/workflows/build.yml)
 
-See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
-
-After setup, it is recommended you update this README to describe your custom image.
+WIP COSMIC image built with BlueBuild. NOT FOR PRODUCTION USE
 
 ## Installation
 
 > [!WARNING]  
 > [This is an experimental feature](https://www.fedoraproject.org/wiki/Changes/OstreeNativeContainerStable), try at your own discretion.
+> You should ONLY rebase from an existing Fedora COSMIC Atomic image as rebasing from other desktop environments may cause issues.
 
 To rebase an existing atomic Fedora installation to the latest build:
 
@@ -32,7 +31,9 @@ The `latest` tag will automatically point to the latest build. That build will s
 
 ## ISO
 
-If build on Fedora Atomic, you can generate an offline ISO with the instructions available [here](https://blue-build.org/how-to/generate-iso/#_top). These ISOs cannot unfortunately be distributed on GitHub for free due to large sizes, so for public projects something else has to be used for hosting.
+If build on Fedora Atomic, you can generate an offline ISO with the instructions available [here](https://blue-build.org/how-to/generate-iso/#_top). 
+
+NOTE: While building the ISO, you need to specify `-V server` to be able to make a user account on the ISO. This is important because, unlike Kinoite (the default) and Silverblue, COSMIC doesn't yet have an account creation process.
 
 ## Verification
 
