@@ -55,6 +55,7 @@ modules:
         - ark
         - ocl-icd
         - cosmic-monitor
+        - cosmic-term
 
   - type: script
     scripts:
