@@ -79,7 +79,6 @@ modules:
           - io.missioncenter.MissionCenter
 
   - type: brew
-    auto-update: true
     auto-upgrade: true
     brew-analytics: true
 
