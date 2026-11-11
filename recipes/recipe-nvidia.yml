@@ -41,7 +41,6 @@ modules:
         - glycin-thumbnailer
         - vulkan-tools
         - OpenCL-ICD-Loader
-        - podman-compose
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
@@ -77,6 +76,7 @@ modules:
           - app.devsuite.Ptyxis
           - com.ranfdev.DistroShelf
           - io.missioncenter.MissionCenter
+          - org.gnome.Papers
 
   - type: brew
     auto-upgrade: true
