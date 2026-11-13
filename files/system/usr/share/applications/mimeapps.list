@@ -1,0 +1,36 @@
+
+[Default Applications]
+# Web browser — Brave (native)
+text/html=brave-browser.desktop;
+application/xhtml+xml=brave-browser.desktop;
+x-scheme-handler/http=brave-browser.desktop;
+x-scheme-handler/https=brave-browser.desktop;
+
+# Email — Betterbird
+x-scheme-handler/mailto=eu.betterbird.Betterbird.desktop;
+message/rfc822=eu.betterbird.Betterbird.desktop;
+
+# Text editor — gedit
+text/plain=org.gnome.gedit.desktop;
+
+# Image viewer — Loupe
+image/jpeg=org.gnome.Loupe.desktop;
+image/png=org.gnome.Loupe.desktop;
+image/gif=org.gnome.Loupe.desktop;
+image/webp=org.gnome.Loupe.desktop;
+image/avif=org.gnome.Loupe.desktop;
+image/heic=org.gnome.Loupe.desktop;
+image/heif=org.gnome.Loupe.desktop;
+image/tiff=org.gnome.Loupe.desktop;
+image/bmp=org.gnome.Loupe.desktop;
+image/svg+xml=org.gnome.Loupe.desktop;
+
+# Video player — Cine
+video/mp4=io.github.diegopvlk.Cine.desktop;
+video/x-matroska=io.github.diegopvlk.Cine.desktop;
+video/webm=io.github.diegopvlk.Cine.desktop;
+video/quicktime=io.github.diegopvlk.Cine.desktop;
+video/x-msvideo=io.github.diegopvlk.Cine.desktop;
+video/mpeg=io.github.diegopvlk.Cine.desktop;
+video/x-flv=io.github.diegopvlk.Cine.desktop;
+video/ogg=io.github.diegopvlk.Cine.desktop;

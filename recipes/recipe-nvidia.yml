@@ -59,9 +59,10 @@ modules:
         - cosmic-monitor
         - cosmic-term
 
-  - type: script
-    scripts:
-      - set-default-apps.sh
+  - type: files
+    files:
+      - source: system
+        destination: /
 
   - type: default-flatpaks
     configurations:
