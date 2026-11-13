@@ -34,3 +34,6 @@ video/x-msvideo=io.github.diegopvlk.Cine.desktop;
 video/mpeg=io.github.diegopvlk.Cine.desktop;
 video/x-flv=io.github.diegopvlk.Cine.desktop;
 video/ogg=io.github.diegopvlk.Cine.desktop;
+
+# Terminal — Ptyxis (Flatpak)
+x-scheme-handler/terminal=app.devsuite.Ptyxis.desktop;
