@@ -25,11 +25,13 @@ modules:
         - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
       copr:
         - atim/starship
+        - secureblue/packages
     install:
       packages:
         - repo: brave-browser
           packages:
             - brave-origin
+        - brew-proxy
         - micro
         - starship
         - liberation-fonts
@@ -41,6 +43,7 @@ modules:
         - glycin-thumbnailer
         - vulkan-tools
         - OpenCL-ICD-Loader
+        - run0edit
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
